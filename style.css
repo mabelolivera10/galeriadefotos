@@ -1,0 +1,811 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400, 600");
+
+.Container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.Picture {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 5px solid #fff;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  user-select: none;
+  cursor: pointer;
+}
+
+.Picture-img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.Picture-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 70px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.Network {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.Network img {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+  vertical-align: middle;
+}
+
+/* --------------------- */
+/* Other styles          */
+/* --------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Caveat', serif;
+  overflow: hidden;
+}
+
+.Me {
+  position: fixed;
+  z-index: 15;
+  bottom: 20px;
+  left: 50%;
+  color: #111;
+  transform: translateX(-50%);
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.7;
+}
+
+
+
+
+.hero-btn {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  height: 66px;
+}
+.hero-btn .btn {
+  background-color: #c713e2; /* Nuevo color de fondo */
+ 
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  width: 400px;
+  height: 66px;
+  text-align: center;
+  line-height: 66px;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+  -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+  -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+  transform: perspective(600px) rotateX(0deg) scale(1);
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.hero-btn .btn:hover {
+  background-color: #e473b5; 
+  -moz-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.5); 
+}
+.hero-btn .btn:active {
+  -moz-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  -ms-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  -webkit-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  transform: perspective(600px) rotateX(15deg) scale(0.9);
+  font-size: 21px;
+  -moz-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+}
+.active .hero-btn .btn:active {
+  -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+  -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+  -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+  transform: perspective(600px) rotateX(0deg) scale(1);
+  font-size: 22px;
+  -moz-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+}
+.hero-btn .particles-circle {
+  position: absolute;
+  background-color: #eb2c75;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 50%;
+  margin-left: -15px;
+  z-index: -1;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  visibility: hidden;
+}
+.hero-btn .particles-circle:nth-of-type(odd) {
+  border: solid 2px #d82981;
+  background-color: transparent;
+}
+@keyframes particles-1 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 47px;
+    top: -108px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(1) {
+  animation: particles-1 1.5s 0.025s;
+}
+@keyframes particles-2 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -115px;
+    top: -100px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(2) {
+  animation: particles-2 1.5s 0.05s;
+}
+@keyframes particles-3 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 228px;
+    top: 148px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(3) {
+  animation: particles-3 1.5s 0.075s;
+}
+@keyframes particles-4 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 17px;
+    top: 226px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(4) {
+  animation: particles-4 1.5s 0.1s;
+}
+@keyframes particles-5 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -222px;
+    top: 217px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(5) {
+  animation: particles-5 1.5s 0.125s;
+}
+@keyframes particles-6 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 36px;
+    top: 214px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(6) {
+  animation: particles-6 1.5s 0.15s;
+}
+@keyframes particles-7 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -221px;
+    top: -158px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(7) {
+  animation: particles-7 1.5s 0.175s;
+}
+@keyframes particles-8 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 38px;
+    top: 147px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(8) {
+  animation: particles-8 1.5s 0.2s;
+}
+@keyframes particles-9 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -218px;
+    top: -10px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(9) {
+  animation: particles-9 1.5s 0.225s;
+}
+@keyframes particles-10 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 22px;
+    top: -53px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(10) {
+  animation: particles-10 1.5s 0.25s;
+}
+@keyframes particles-11 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 120px;
+    top: -60px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(11) {
+  animation: particles-11 1.5s 0.275s;
+}
+@keyframes particles-12 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -15px;
+    top: 9px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(12) {
+  animation: particles-12 1.5s 0.3s;
+}
+@keyframes particles-13 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 114px;
+    top: -198px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(13) {
+  animation: particles-13 1.5s 0.325s;
+}
+@keyframes particles-14 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -212px;
+    top: -34px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(14) {
+  animation: particles-14 1.5s 0.35s;
+}
+@keyframes particles-15 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 183px;
+    top: -14px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(15) {
+  animation: particles-15 1.5s 0.375s;
+}
+@keyframes particles-16 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 150px;
+    top: 146px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(16) {
+  animation: particles-16 1.5s 0.4s;
+}
+@keyframes particles-17 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 102px;
+    top: 128px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(17) {
+  animation: particles-17 1.5s 0.425s;
+}
+@keyframes particles-18 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -157px;
+    top: 134px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(18) {
+  animation: particles-18 1.5s 0.45s;
+}
+@keyframes particles-19 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 244px;
+    top: 10px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(19) {
+  animation: particles-19 1.5s 0.475s;
+}
+@keyframes particles-20 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -11px;
+    top: 138px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(20) {
+  animation: particles-20 1.5s 0.5s;
+}
+@keyframes particles-21 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 175px;
+    top: -248px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(21) {
+  animation: particles-21 1.5s 0.525s;
+}
+@keyframes particles-22 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 116px;
+    top: 96px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(22) {
+  animation: particles-22 1.5s 0.55s;
+}
+@keyframes particles-23 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 65px;
+    top: -162px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(23) {
+  animation: particles-23 1.5s 0.575s;
+}
+@keyframes particles-24 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 137px;
+    top: 133px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(24) {
+  animation: particles-24 1.5s 0.6s;
+}
+@keyframes particles-25 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -35px;
+    top: -226px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(25) {
+  animation: particles-25 1.5s 0.625s;
+}
+@keyframes particles-26 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -8px;
+    top: -224px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(26) {
+  animation: particles-26 1.5s 0.65s;
+}
+@keyframes particles-27 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -247px;
+    top: 228px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(27) {
+  animation: particles-27 1.5s 0.675s;
+}
+@keyframes particles-28 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 209px;
+    top: 43px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(28) {
+  animation: particles-28 1.5s 0.7s;
+}
+@keyframes particles-29 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -6px;
+    top: 183px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(29) {
+  animation: particles-29 1.5s 0.725s;
+}
+@keyframes particles-30 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -61px;
+    top: -104px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(30) {
+  animation: particles-30 1.5s 0.75s;
+}
+@keyframes particles-31 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 62px;
+    top: -106px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(31) {
+  animation: particles-31 1.5s 0.775s;
+}
+@keyframes particles-32 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -95px;
+    top: 125px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(32) {
+  animation: particles-32 1.5s 0.8s;
+}
+@keyframes particles-33 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 160px;
+    top: 206px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(33) {
+  animation: particles-33 1.5s 0.825s;
+}
+@keyframes particles-34 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -188px;
+    top: 143px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(34) {
+  animation: particles-34 1.5s 0.85s;
+}
+@keyframes particles-35 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 4px;
+    top: -94px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(35) {
+  animation: particles-35 1.5s 0.875s;
+}
+
+@keyframes particles-36 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 4px;
+    top: -94px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(36) {
+  animation: particles-36 1.5s 0.975s;
+}
+
+.v-align {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  max-height: 90vh;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wrap__sparks {
+  transform: translateZ(-100px);
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: #d8d2bd;
+  height: 100vh;
+  position: relative;
+}
+
+h1 {
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  color: #6a11cb;
+  font-weight: 500;
+}
+
+.made-with-love {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+  z-index: 9999;
+  font-family: arial;
+  color: #c74f2b;
+  font-weight: 600;
+}
+.made-with-love i {
+  font-style: normal;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #c74f2b;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}
+.made-with-love .dribble img {
+  max-width: 100%;
+  width: 26px;
+  position: relative;
+  top: -2px;
+  vertical-align: middle;
+}
+
+.ocultar {
+  display: none;
+}
+#textoAmor {
+  font-size: 60px; /* Tamaño del texto aumentado */
+  position: absolute;
+  top: -300px; /* Ajuste de la posición superior */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c54384;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#textoAmor::after {
+  content: ' ♥'; /* Agregamos el corazón después del texto */
+  color: red; /* Cambiamos el color del corazón, puedes ajustarlo según tu preferencia */
+}
